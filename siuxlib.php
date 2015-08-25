@@ -178,9 +178,9 @@ class SiUXclient extends SiUXmethod {
 
 $siux = new SiUXclient();
 
-#print_r( $siux->clientUpdate($client='dbfafcbf1e6dc43c1f759312ad2d4d83', array("name" => "TEST FIRMA2") ) );
-print_r( $siux->sourceList($client='dbfafcbf1e6dc43c1f759312ad2d4d83') );
-#print_r( $siux->availabilityList($client='dbfafcbf1e6dc43c1f759312ad2d4d83', $dateInput=20150807, $history=30, $sourceId=33439) );
+#print_r( $siux->clientUpdate($client='CLIENT_HASH', array("name" => "TEST FIRMA2") ) );
+print_r( $siux->sourceList($client='CLIENT_HASH') );
+#print_r( $siux->availabilityList($client='CLIENT_HASH', $dateInput=20150807, $history=30, $sourceId=33439) );
 
 print_r( $siux->methodList() );
 
