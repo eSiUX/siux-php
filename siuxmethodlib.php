@@ -1,6 +1,6 @@
 <?php
 
-# generate date: 2015-08-26 10:54:49
+# generate date: 2015-08-26 11:03:55
 
 
 class SiUXmethod {
@@ -165,14 +165,6 @@ class SiUXmethod {
 	# --- 
 	# OPERATOR 
 
-	function operatorAdd( $email='', $name='', $surname='', $passwd='', $parametr=array() ) {
-		return $this->_call( 'operator.add', $this->_auth, $email, $name, $surname, $passwd, $parametr );
-	}
-
-	function operatorDelete( $operatorId=0 ) {
-		return $this->_call( 'operator.delete', $this->_auth, $operatorId );
-	}
-
 	function operatorInfo( $operatorId=0 ) {
 		return $this->_call( 'operator.info', $this->_auth, $operatorId );
 	}
@@ -183,10 +175,6 @@ class SiUXmethod {
 
 	function operatorLogList( $operatorId=0 ) {
 		return $this->_call( 'operator.log.list', $this->_auth, $operatorId );
-	}
-
-	function operatorUpdate( $operatorId=0, $operatorDict=array() ) {
-		return $this->_call( 'operator.update', $this->_auth, $operatorId, $operatorDict );
 	}
 
 
@@ -261,10 +249,6 @@ class SiUXmethod {
 		return $this->_call( 'source.deactive', $this->_auth, $sourceId );
 	}
 
-	function sourceDelete( $sourceId=0 ) {
-		return $this->_call( 'source.delete', $this->_auth, $sourceId );
-	}
-
 	function sourceDropoutInfo( $sourceId=0, $date='2008-01-01' ) {
 		return $this->_call( 'source.dropout.info', $this->_auth, $sourceId, $date );
 	}
@@ -295,10 +279,6 @@ class SiUXmethod {
 
 	function sourceList( $sourceGroupId=0 ) {
 		return $this->_call( 'source.list', $this->_auth, $sourceGroupId );
-	}
-
-	function sourceOutputAdd( $sourceId=0, $date='2015-01-01', $data=array() ) {
-		return $this->_call( 'source.output.add', $this->_auth, $sourceId, $date, $data );
 	}
 
 	function sourceOutputGroup( $sourceId=0, $tsGroup=0 ) {
