@@ -176,11 +176,11 @@ class SiUXclient extends SiUXmethod {
 
 
 
-$siux = new SiUXclient();
+$siux = new SiUXclient($auth='CLIENT_HASH');
 
-#print_r( $siux->clientUpdate($client='CLIENT_HASH', array("name" => "TEST FIRMA2") ) );
-print_r( $siux->sourceList($client='CLIENT_HASH') );
-#print_r( $siux->availabilityList($client='CLIENT_HASH', $dateInput=20150807, $history=30, $sourceId=33439) );
+#print_r( $siux->clientUpdate( array("name" => "TEST FIRMA2") ) );
+print_r( $siux->sourceList() );
+#print_r( $siux->availabilityList($dateInput=20150807, $history=30, $sourceId=33439) );
 
 print_r( $siux->methodList() );
 
