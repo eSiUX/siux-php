@@ -9,3 +9,6 @@ addons:
     packages:
     - php5-cli
     - php5-xmlrpc
+before_install:
+    - php5 /home/travis/.phpenv/versions/5.5/bin/composer self-update
+
