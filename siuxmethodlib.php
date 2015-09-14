@@ -1,6 +1,6 @@
 <?php
 
-# generate date: 2015-08-26 11:03:55
+# generate date: 2015-09-11 15:20:40
 
 
 class SiUXmethod {
@@ -13,8 +13,8 @@ class SiUXmethod {
 		return $this->_call( 'apikey.add', $this->_auth, $name, $readOnly );
 	}
 
-	function apikeyDelete( $apiId=0 ) {
-		return $this->_call( 'apikey.delete', $this->_auth, $apiId );
+	function apikeyDelete( $apikeyId=0 ) {
+		return $this->_call( 'apikey.delete', $this->_auth, $apikeyId );
 	}
 
 	function apikeyList(  ) {
@@ -25,20 +25,12 @@ class SiUXmethod {
 	# --- 
 	# AVAILABILITY 
 
-	function availabilityInfo( $dateTo=20140101 ) {
+	function availabilityInfo( $dateTo=20150901 ) {
 		return $this->_call( 'availability.info', $this->_auth, $dateTo );
 	}
 
-	function availabilityList( $dateInput=20140101, $history=30, $sourceId=0 ) {
+	function availabilityList( $dateInput=20150901, $history=30, $sourceId=0 ) {
 		return $this->_call( 'availability.list', $this->_auth, $dateInput, $history, $sourceId );
-	}
-
-
-	# --- 
-	# BROWSER 
-
-	function browserList(  ) {
-		return $this->_call( 'browser.list', $this->_auth );
 	}
 
 
@@ -55,69 +47,9 @@ class SiUXmethod {
 
 
 	# --- 
-	# CONTACT 
-
-	function contactAdd( $name='', $value='', $parametr=array(), $contactGroup=array() ) {
-		return $this->_call( 'contact.add', $this->_auth, $name, $value, $parametr, $contactGroup );
-	}
-
-	function contactDeactive( $value='' ) {
-		return $this->_call( 'contact.deactive', $this->_auth, $value );
-	}
-
-	function contactDelete( $contactId=0 ) {
-		return $this->_call( 'contact.delete', $this->_auth, $contactId );
-	}
-
-	function contactGroupAdd( $name='', $parametr=array() ) {
-		return $this->_call( 'contact.group.add', $this->_auth, $name, $parametr );
-	}
-
-	function contactGroupDelete( $contactGroupId=0 ) {
-		return $this->_call( 'contact.group.delete', $this->_auth, $contactGroupId );
-	}
-
-	function contactGroupInfo( $contactGroupId=0 ) {
-		return $this->_call( 'contact.group.info', $this->_auth, $contactGroupId );
-	}
-
-	function contactGroupList(  ) {
-		return $this->_call( 'contact.group.list', $this->_auth );
-	}
-
-	function contactInfo( $contactId=0 ) {
-		return $this->_call( 'contact.info', $this->_auth, $contactId );
-	}
-
-	function contactList( $status='all' ) {
-		return $this->_call( 'contact.list', $this->_auth, $status );
-	}
-
-	function contactUpdate( $contactId=0, $parametr=array(), $contactGroup=array() ) {
-		return $this->_call( 'contact.update', $this->_auth, $contactId, $parametr, $contactGroup );
-	}
-
-
-	# --- 
-	# COUNTRY 
-
-	function countryList(  ) {
-		return $this->_call( 'country.list', $this->_auth );
-	}
-
-
-	# --- 
-	# DOMAIN 
-
-	function domainList(  ) {
-		return $this->_call( 'domain.list', $this->_auth );
-	}
-
-
-	# --- 
 	# DROPOUT 
 
-	function dropoutInfo( $dateTo=20140101 ) {
+	function dropoutInfo( $dateTo=20150901 ) {
 		return $this->_call( 'dropout.info', $this->_auth, $dateTo );
 	}
 
@@ -155,10 +87,50 @@ class SiUXmethod {
 
 
 	# --- 
-	# LANG 
+	# NOTIFY 
 
-	function langList(  ) {
-		return $this->_call( 'lang.list', $this->_auth );
+	function notifyAdd( $name='', $value='', $parameter=array(), $contactGroup=array() ) {
+		return $this->_call( 'notify.add', $this->_auth, $name, $value, $parameter, $contactGroup );
+	}
+
+	function notifyDeactive( $value='' ) {
+		return $this->_call( 'notify.deactive', $this->_auth, $value );
+	}
+
+	function notifyDelete( $contactId=0 ) {
+		return $this->_call( 'notify.delete', $this->_auth, $contactId );
+	}
+
+	function notifyGroupAdd( $name='', $parameter=array() ) {
+		return $this->_call( 'notify.group.add', $this->_auth, $name, $parameter );
+	}
+
+	function notifyGroupDelete( $contactGroupId=0 ) {
+		return $this->_call( 'notify.group.delete', $this->_auth, $contactGroupId );
+	}
+
+	function notifyGroupInfo( $contactGroupId=0 ) {
+		return $this->_call( 'notify.group.info', $this->_auth, $contactGroupId );
+	}
+
+	function notifyGroupList(  ) {
+		return $this->_call( 'notify.group.list', $this->_auth );
+	}
+
+	function notifyInfo( $contactId=0 ) {
+		return $this->_call( 'notify.info', $this->_auth, $contactId );
+	}
+
+	function notifyList( $status='all' ) {
+		return $this->_call( 'notify.list', $this->_auth, $status );
+	}
+
+	function notifySenderInfo( $dateTo=20150101 ) {
+		return $this->_call( 'notify.sender.info', $this->_auth, $dateTo );
+	}
+
+	function notifyUpdate( $contactId=0, $parameter=array(), $contactGroup=array() ) {
+		return $this->_call( 'notify.update', $this->_auth, $contactId, $parameter, $contactGroup );
 	}
 
 
@@ -227,14 +199,6 @@ class SiUXmethod {
 
 
 	# --- 
-	# SENDER 
-
-	function senderInfo( $dateTo=20140101 ) {
-		return $this->_call( 'sender.info', $this->_auth, $dateTo );
-	}
-
-
-	# --- 
 	# SOURCE 
 
 	function sourceActive( $sourceId=0 ) {
@@ -249,7 +213,7 @@ class SiUXmethod {
 		return $this->_call( 'source.deactive', $this->_auth, $sourceId );
 	}
 
-	function sourceDropoutInfo( $sourceId=0, $date='2008-01-01' ) {
+	function sourceDropoutInfo( $sourceId=0, $date='2015-09-01' ) {
 		return $this->_call( 'source.dropout.info', $this->_auth, $sourceId, $date );
 	}
 
@@ -257,8 +221,8 @@ class SiUXmethod {
 		return $this->_call( 'source.dropout.list', $this->_auth, $sourceId, $history );
 	}
 
-	function sourceGroupAdd( $name='', $parametr=array() ) {
-		return $this->_call( 'source.group.add', $this->_auth, $name, $parametr );
+	function sourceGroupAdd( $name='', $parameter=array() ) {
+		return $this->_call( 'source.group.add', $this->_auth, $name, $parameter );
 	}
 
 	function sourceGroupDelete( $sourceGroupId=0 ) {
@@ -285,7 +249,7 @@ class SiUXmethod {
 		return $this->_call( 'source.output.group', $this->_auth, $sourceId, $tsGroup );
 	}
 
-	function sourceOutputInfo( $sourceId=0, $date='2008-01-01', $limit=2000, $FromId=0, $outputId=0, $countrys=array(), $checkpointIds=array(), $dataView='all' ) {
+	function sourceOutputInfo( $sourceId=0, $date='2015-09-01', $limit=2000, $FromId=0, $outputId=0, $countrys=array(), $checkpointIds=array(), $dataView='all' ) {
 		return $this->_call( 'source.output.info', $this->_auth, $sourceId, $date, $limit, $FromId, $outputId, $countrys, $checkpointIds, $dataView );
 	}
 
@@ -303,14 +267,6 @@ class SiUXmethod {
 
 	function sourceUpdate( $sourceId=0, $sourceDict=array() ) {
 		return $this->_call( 'source.update', $this->_auth, $sourceId, $sourceDict );
-	}
-
-
-	# --- 
-	# TIMEZONE 
-
-	function timezoneList(  ) {
-		return $this->_call( 'timezone.list', $this->_auth );
 	}
 
 
