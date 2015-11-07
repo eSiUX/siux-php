@@ -1,6 +1,6 @@
 <?php
 
-# generate date: 2015-09-11 15:20:40
+# generate date: 2015-11-07 11:49:00
 
 
 class SiUXmethod {
@@ -141,6 +141,10 @@ class SiUXmethod {
 		return $this->_call( 'operator.info', $this->_auth, $operatorId );
 	}
 
+	function operatorLangSet( $operatorId=0, $lang='' ) {
+		return $this->_call( 'operator.lang.set', $this->_auth, $operatorId, $lang );
+	}
+
 	function operatorList(  ) {
 		return $this->_call( 'operator.list', $this->_auth );
 	}
@@ -265,8 +269,24 @@ class SiUXmethod {
 		return $this->_call( 'source.stat.monthly.list', $this->_auth, $sourceId, $history );
 	}
 
+	function sourceStatWeeklyList( $sourceId=0, $date='2001-01-01' ) {
+		return $this->_call( 'source.stat.weekly.list', $this->_auth, $sourceId, $date );
+	}
+
 	function sourceUpdate( $sourceId=0, $sourceDict=array() ) {
 		return $this->_call( 'source.update', $this->_auth, $sourceId, $sourceDict );
+	}
+
+	function sourceVideoInfo( $sourceId=0, $date='2015-09-01', $whatName='session', $whatId='' ) {
+		return $this->_call( 'source.video.info', $this->_auth, $sourceId, $date, $whatName, $whatId );
+	}
+
+
+	# --- 
+	# VIDEO 
+
+	function videoOutputInfo( $sourceId=0, $date='2015-09-01', $limit=2000, $FromId=0, $outputId=0, $countrys=array(), $checkpointIds=array(), $dataView='all', $videoId='' ) {
+		return $this->_call( 'video.output.info', $this->_auth, $sourceId, $date, $limit, $FromId, $outputId, $countrys, $checkpointIds, $dataView, $videoId );
 	}
 
 
