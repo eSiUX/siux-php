@@ -1,6 +1,6 @@
 <?php
 
-# generate date: 2015-11-07 11:49:00
+# generate date: 2016-02-13 18:58:06
 
 
 class SiUXmethod {
@@ -25,12 +25,24 @@ class SiUXmethod {
 	# --- 
 	# AVAILABILITY 
 
+	function availabilityHourlyList( $dateInput=20160201, $history=30, $view='hourOnly' ) {
+		return $this->_call( 'availability.hourly.list', $this->_auth, $dateInput, $history, $view );
+	}
+
 	function availabilityInfo( $dateTo=20150901 ) {
 		return $this->_call( 'availability.info', $this->_auth, $dateTo );
 	}
 
 	function availabilityList( $dateInput=20150901, $history=30, $sourceId=0 ) {
 		return $this->_call( 'availability.list', $this->_auth, $dateInput, $history, $sourceId );
+	}
+
+
+	# --- 
+	# BROWSER 
+
+	function browserList(  ) {
+		return $this->_call( 'browser.list', $this->_auth );
 	}
 
 
@@ -43,6 +55,74 @@ class SiUXmethod {
 
 	function checkpointList( $active=-1 ) {
 		return $this->_call( 'checkpoint.list', $this->_auth, $active );
+	}
+
+
+	# --- 
+	# CONTRACT 
+
+	function contractAdd( $parameter=array(), $sources=array() ) {
+		return $this->_call( 'contract.add', $this->_auth, $parameter, $sources );
+	}
+
+	function contractInfo( $contractId=0 ) {
+		return $this->_call( 'contract.info', $this->_auth, $contractId );
+	}
+
+	function contractList( $status='all', $history=30 ) {
+		return $this->_call( 'contract.list', $this->_auth, $status, $history );
+	}
+
+	function contractOutputInfo( $contractId=0, $dateInput=20160201, $history=30 ) {
+		return $this->_call( 'contract.output.info', $this->_auth, $contractId, $dateInput, $history );
+	}
+
+	function contractUpdate( $contractId=0, $parameter=array(), $sources=array() ) {
+		return $this->_call( 'contract.update', $this->_auth, $contractId, $parameter, $sources );
+	}
+
+
+	# --- 
+	# CONTRACTOR 
+
+	function contractorAdd( $parameter=array() ) {
+		return $this->_call( 'contractor.add', $this->_auth, $parameter );
+	}
+
+	function contractorInfo( $contractorId=0 ) {
+		return $this->_call( 'contractor.info', $this->_auth, $contractorId );
+	}
+
+	function contractorList(  ) {
+		return $this->_call( 'contractor.list', $this->_auth );
+	}
+
+	function contractorUpdate( $contractorId=0, $parameter=array() ) {
+		return $this->_call( 'contractor.update', $this->_auth, $contractorId, $parameter );
+	}
+
+
+	# --- 
+	# COUNTRY 
+
+	function countryList(  ) {
+		return $this->_call( 'country.list', $this->_auth );
+	}
+
+
+	# --- 
+	# DEPLOY 
+
+	function deployAdd( $tagId=0, $version='', $env='', $operatorId=0 ) {
+		return $this->_call( 'deploy.add', $this->_auth, $tagId, $version, $env, $operatorId );
+	}
+
+	function deployInfo( $deployId=0 ) {
+		return $this->_call( 'deploy.info', $this->_auth, $deployId );
+	}
+
+	function deployList( $environments=array() ) {
+		return $this->_call( 'deploy.list', $this->_auth, $environments );
 	}
 
 
@@ -87,6 +167,14 @@ class SiUXmethod {
 
 
 	# --- 
+	# LANG 
+
+	function langList(  ) {
+		return $this->_call( 'lang.list', $this->_auth );
+	}
+
+
+	# --- 
 	# NOTIFY 
 
 	function notifyAdd( $name='', $value='', $parameter=array(), $contactGroup=array() ) {
@@ -125,8 +213,12 @@ class SiUXmethod {
 		return $this->_call( 'notify.list', $this->_auth, $status );
 	}
 
-	function notifySenderInfo( $dateTo=20150101 ) {
-		return $this->_call( 'notify.sender.info', $this->_auth, $dateTo );
+	function notifySenderInfo( $dateTo=20150101, $view='all', $From=0, $step=20 ) {
+		return $this->_call( 'notify.sender.info', $this->_auth, $dateTo, $view, $From, $step );
+	}
+
+	function notifySenderList( $dateTo=20160101, $history=30 ) {
+		return $this->_call( 'notify.sender.list', $this->_auth, $dateTo, $history );
 	}
 
 	function notifyUpdate( $contactId=0, $parameter=array(), $contactGroup=array() ) {
@@ -151,6 +243,14 @@ class SiUXmethod {
 
 	function operatorLogList( $operatorId=0 ) {
 		return $this->_call( 'operator.log.list', $this->_auth, $operatorId );
+	}
+
+
+	# --- 
+	# RUM 
+
+	function rumOutputInfo( $sourceId=0, $date='2015-09-01', $outputId=0 ) {
+		return $this->_call( 'rum.output.info', $this->_auth, $sourceId, $date, $outputId );
 	}
 
 
@@ -241,16 +341,24 @@ class SiUXmethod {
 		return $this->_call( 'source.group.list', $this->_auth );
 	}
 
+	function sourceGroupUpdate( $sourceGroupId=0, $parameter=array() ) {
+		return $this->_call( 'source.group.update', $this->_auth, $sourceGroupId, $parameter );
+	}
+
 	function sourceInfo( $sourceId=0 ) {
 		return $this->_call( 'source.info', $this->_auth, $sourceId );
 	}
 
-	function sourceList( $sourceGroupId=0 ) {
-		return $this->_call( 'source.list', $this->_auth, $sourceGroupId );
+	function sourceList( $sourceGroupId=0, $tagId=0 ) {
+		return $this->_call( 'source.list', $this->_auth, $sourceGroupId, $tagId );
 	}
 
 	function sourceOutputGroup( $sourceId=0, $tsGroup=0 ) {
 		return $this->_call( 'source.output.group', $this->_auth, $sourceId, $tsGroup );
+	}
+
+	function sourceOutputHeaderInfo( $sourceId=0, $date='2015-01-01', $outputId=0 ) {
+		return $this->_call( 'source.output.header.info', $this->_auth, $sourceId, $date, $outputId );
 	}
 
 	function sourceOutputInfo( $sourceId=0, $date='2015-09-01', $limit=2000, $FromId=0, $outputId=0, $countrys=array(), $checkpointIds=array(), $dataView='all' ) {
@@ -259,10 +367,6 @@ class SiUXmethod {
 
 	function sourceStatDailyList( $sourceId=0, $date='2001-01' ) {
 		return $this->_call( 'source.stat.daily.list', $this->_auth, $sourceId, $date );
-	}
-
-	function sourceStatList( $hostname, $history=7 ) {
-		return $this->_call( 'source.stat.list', $hostname, $history );
 	}
 
 	function sourceStatMonthlyList( $sourceId=0, $history=12 ) {
@@ -279,6 +383,46 @@ class SiUXmethod {
 
 	function sourceVideoInfo( $sourceId=0, $date='2015-09-01', $whatName='session', $whatId='' ) {
 		return $this->_call( 'source.video.info', $this->_auth, $sourceId, $date, $whatName, $whatId );
+	}
+
+
+	# --- 
+	# TAG 
+
+	function tagAdd( $name='', $label='default', $flagNotify=0, $flagDeploy=0 ) {
+		return $this->_call( 'tag.add', $this->_auth, $name, $label, $flagNotify, $flagDeploy );
+	}
+
+	function tagDelete( $tagId=0 ) {
+		return $this->_call( 'tag.delete', $this->_auth, $tagId );
+	}
+
+	function tagInfo( $tagId=0 ) {
+		return $this->_call( 'tag.info', $this->_auth, $tagId );
+	}
+
+	function tagList(  ) {
+		return $this->_call( 'tag.list', $this->_auth );
+	}
+
+	function tagReplyAdd( $tagId=0, $sourceId=0, $operatorId=0, $senderId=0, $date=0 ) {
+		return $this->_call( 'tag.reply.add', $this->_auth, $tagId, $sourceId, $operatorId, $senderId, $date );
+	}
+
+	function tagReplyList( $tagId=0, $sourceId=0, $From=0, $step=20 ) {
+		return $this->_call( 'tag.reply.list', $this->_auth, $tagId, $sourceId, $From, $step );
+	}
+
+	function tagReplyUpdate( $tagReplyId=0, $operatorId=0, $comment='' ) {
+		return $this->_call( 'tag.reply.update', $this->_auth, $tagReplyId, $operatorId, $comment );
+	}
+
+
+	# --- 
+	# TIMEZONE 
+
+	function timezoneList(  ) {
+		return $this->_call( 'timezone.list', $this->_auth );
 	}
 
 
