@@ -1,6 +1,6 @@
 <?php
 
-# generate date: 2016-02-13 18:58:06
+# generate date: 2016-03-22 22:13:13
 
 
 class SiUXmethod {
@@ -55,50 +55,6 @@ class SiUXmethod {
 
 	function checkpointList( $active=-1 ) {
 		return $this->_call( 'checkpoint.list', $this->_auth, $active );
-	}
-
-
-	# --- 
-	# CONTRACT 
-
-	function contractAdd( $parameter=array(), $sources=array() ) {
-		return $this->_call( 'contract.add', $this->_auth, $parameter, $sources );
-	}
-
-	function contractInfo( $contractId=0 ) {
-		return $this->_call( 'contract.info', $this->_auth, $contractId );
-	}
-
-	function contractList( $status='all', $history=30 ) {
-		return $this->_call( 'contract.list', $this->_auth, $status, $history );
-	}
-
-	function contractOutputInfo( $contractId=0, $dateInput=20160201, $history=30 ) {
-		return $this->_call( 'contract.output.info', $this->_auth, $contractId, $dateInput, $history );
-	}
-
-	function contractUpdate( $contractId=0, $parameter=array(), $sources=array() ) {
-		return $this->_call( 'contract.update', $this->_auth, $contractId, $parameter, $sources );
-	}
-
-
-	# --- 
-	# CONTRACTOR 
-
-	function contractorAdd( $parameter=array() ) {
-		return $this->_call( 'contractor.add', $this->_auth, $parameter );
-	}
-
-	function contractorInfo( $contractorId=0 ) {
-		return $this->_call( 'contractor.info', $this->_auth, $contractorId );
-	}
-
-	function contractorList(  ) {
-		return $this->_call( 'contractor.list', $this->_auth );
-	}
-
-	function contractorUpdate( $contractorId=0, $parameter=array() ) {
-		return $this->_call( 'contractor.update', $this->_auth, $contractorId, $parameter );
 	}
 
 
@@ -251,6 +207,14 @@ class SiUXmethod {
 
 	function rumOutputInfo( $sourceId=0, $date='2015-09-01', $outputId=0 ) {
 		return $this->_call( 'rum.output.info', $this->_auth, $sourceId, $date, $outputId );
+	}
+
+
+	# --- 
+	# SEARCH 
+
+	function searchList( $query='seznam' ) {
+		return $this->_call( 'search.list', $this->_auth, $query );
 	}
 
 
